@@ -11,7 +11,6 @@ class ProductTemplate(models.Model):
         finally:
             return value
 
-    # no_sale_option_id = fields.Many2one(comodel_name='no_sale_options', string='Si no es ven', default=lambda self: self.env.ref('disfresses.no_sale_option_1').id)
     no_sale_option_id = fields.Many2one(comodel_name='no_sale_options', string='Si no es ven', default=_get_default_no_sale)
 
     @api.model

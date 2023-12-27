@@ -12,12 +12,5 @@
         <record id="pos_category_altres" model="pos.category">
           <field name="name">Altres</field>
         </record>
-
-        <record id="no_sale_option_1" model="no_sale_options">
-          <field name="name">El vull donar al centre</field>
-        </record>
-        <record id="no_sale_option_2" model="no_sale_options">
-          <field name="name">El vull recuperar</field>
-        </record>
     </data>
 </odoo>

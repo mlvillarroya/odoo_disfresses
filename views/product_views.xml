@@ -9,7 +9,7 @@
                 <field string="Categoria" name="pos_categ_id" context="{'group_by':'pos_categ_id'}"/>
             </field>
             <field name="pos_categ_id" position="after">
-                <field string="Si no es ven" name="no_sale_option_id" context="{'group_by':'pos_categ_id'}"/>
+                <field string="Si no es ven" name="no_sale_option" />
             </field>
             <field name="detailed_type" position="attributes">
                 <attribute name='invisible'>1</attribute>
@@ -66,7 +66,7 @@
                     <field name="name" string="Product Name"/>
                     <field name="default_code" optional="show"/>
                     <field name="pos_categ_id"/>
-                    <field name="no_sale_option_id" string="Si no es ven"/>
+                    <field name="no_sale_option" string="Si no es ven"/>
                     <field name="immediately_usable_qty" string="Stock"/>
                     <field name="list_price" string="Sales Price" widget='monetary' options="{'currency_field': 'currency_id'}" optional="show" decoration-muted="not sale_ok"/>
                 </tree>
@@ -126,13 +126,13 @@
                     <filter string="Altres" name="altres" domain="[('pos_categ_id.name','=','Altres')]"/>
                 </filter>
                 <filter name="altres" position="after">
-                    <filter string="El volen donar" name="volen_donar" domain="[('no_sale_option_id','=', %(disfresses.no_sale_option_1)d)]"/>
+                    <filter string="El volen donar" name="volen_donar" domain="[('no_sale_option','=', 'DONATE')]"/>
                 </filter>
                 <filter name="volen_donar" position="before">
                     <separator/>
                 </filter>
                 <filter name="volen_donar" position="after">
-                    <filter string="Se'ls torna" name="volen_tornar" domain="[('no_sale_option_id','=', %(disfresses.no_sale_option_2)d)]"/>
+                    <filter string="Se'ls torna" name="volen_tornar" domain="[('no_sale_option','=', 'RETRIEVE')]"/>
                 </filter>
                 <filter name="volen_tornar" position="after">
                     <separator/>

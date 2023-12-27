@@ -4,14 +4,11 @@ from odoo import models, fields, api
 class ProductTemplate(models.Model):
     _inherit = 'product.template'
 
-    def _get_default_no_sale(self):
-        value = None
-        try:
-            value = self.env.ref('disfresses.no_sale_option_1').id
-        finally:
-            return value
-
-    no_sale_option_id = fields.Many2one(comodel_name='no_sale_options', string='Si no es ven', default=_get_default_no_sale)
+    # no_sale_option = fields.Many2one(comodel_name='no_sale_options', string='Si no es ven', default=_get_default_no_sale)
+    no_sale_option = fields.Selection(string="Si no es ven", selection=[
+        ('DONATE', 'El vol donar'),
+        ('RETRIEVE', 'El vol recuperar')],
+        default='DONATE')
 
     @api.model
     def default_get(self, fields):

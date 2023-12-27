@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="product_template_form_view">
+        <field name="name">product.template.common.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_form_view" />
+        <field name="arch" type="xml">
+            <field name="detailed_type" position="after">
+                <field string="Categoria" name="pos_categ_id" context="{'group_by':'pos_categ_id'}"/>
+            </field>
+            <field name="pos_categ_id" position="after">
+                <field string="Si no es ven" name="no_sale_option_id" context="{'group_by':'pos_categ_id'}"/>
+            </field>
+            <field name="detailed_type" position="attributes">
+                <attribute name='invisible'>1</attribute>
+            </field>
+            <field name="invoice_policy" position="attributes">
+                <attribute name='invisible'>1</attribute>
+            </field>
+            <field name="product_tooltip" position="attributes">
+                <attribute name='invisible'>1</attribute>
+            </field>
+            <field name="taxes_id" position="attributes">
+                <attribute name='invisible'>1</attribute>
+            </field>
+            <field name="standard_price" position="attributes">
+                <attribute name='invisible'>1</attribute>
+            </field>
+            <field name="categ_id" position="attributes">
+                <attribute name='invisible'>1</attribute>
+            </field>
+            <field name="product_tag_ids" position="attributes">
+                <attribute name='invisible'>1</attribute>
+            </field>
+            <page name="sales" position="attributes">
+                <attribute name='invisible'>1</attribute>
+            </page>
+            <page name="purchase" position="attributes">
+                <attribute name='invisible'>1</attribute>
+            </page>
+            <page name="inventory" position="attributes">
+                <attribute name='invisible'>1</attribute>
+            </page>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="product_template_only_form_view">
+        <field name="name">product.template.product.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view" />
+        <field name="arch" type="xml">
+            <field name="barcode" position="attributes">
+                <attribute name='invisible'>1</attribute>
+            </field>
+        </field>
+    </record>
+
+    <record id="product_template_tree_view" model="ir.ui.view">
+        <field name="name">product.template.product.tree</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_tree_view" />
+        <field name="arch" type="xml">
+            <tree position="replace">
+                <tree decoration-danger="immediately_usable_qty &lt;= 0">
+                    <field name="sale_ok" invisible="1"/>
+                    <field name="name" string="Product Name"/>
+                    <field name="default_code" optional="show"/>
+                    <field name="pos_categ_id"/>
+                    <field name="no_sale_option_id" string="Si no es ven"/>
+                    <field name="immediately_usable_qty" string="Stock"/>
+                    <field name="list_price" string="Sales Price" widget='monetary' options="{'currency_field': 'currency_id'}" optional="show" decoration-muted="not sale_ok"/>
+                </tree>
+           </tree>
+        </field>
+    </record>
+
+</odoo>

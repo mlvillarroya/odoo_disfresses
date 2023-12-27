@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="disfressa_sequence_id" model="ir.sequence">
+            <field name="name">Disfressa seq</field>
+            <field name="code">disfressa_sequence_code</field>
+            <field name="prefix">DISF</field>
+            <field name="padding">2</field>
+            <field name="number_next">1</field>
+        </record>
+        <record id="perruca_sequence_id" model="ir.sequence">
+            <field name="name">Perruca seq</field>
+            <field name="code">perruca_sequence_code</field>
+            <field name="prefix">PERR</field>
+            <field name="padding">2</field>
+            <field name="number_next">1</field>
+        </record>
+        <record id="accesori_sequence_id" model="ir.sequence">
+            <field name="name">Accesori seq</field>
+            <field name="code">accesori_sequence_code</field>
+            <field name="prefix">ACC</field>
+            <field name="padding">2</field>
+            <field name="number_next">1</field>
+        </record>
+        <record id="altres_sequence_id" model="ir.sequence">
+            <field name="name">Altres seq</field>
+            <field name="code">altres_sequence_code</field>
+            <field name="prefix">ALT</field>
+            <field name="padding">2</field>
+            <field name="number_next">1</field>
+        </record>
+    </data>
+</odoo>
